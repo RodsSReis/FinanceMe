@@ -1,0 +1,146 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "classificacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "MOVIMENTO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "meio_pagamento",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "BANCO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "MOVIMENTO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "SUBGRUPO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CARTEIRA",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CARTEIRA",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATA",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "posicao_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "SUBGRUPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CARTEIRAINVEST",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ANOREF",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "MESREF",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}
