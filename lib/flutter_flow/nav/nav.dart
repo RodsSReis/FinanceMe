@@ -82,21 +82,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
         ),
         FFRoute(
-          name: 'cd_oper',
-          path: '/cdOper',
-          builder: (context, params) => const CdOperWidget(),
-        ),
-        FFRoute(
-          name: 'cd_classificacao',
-          path: '/cdClassificacao',
-          builder: (context, params) => const CdClassificacaoWidget(),
-        ),
-        FFRoute(
-          name: 'cd_mp',
-          path: '/cdMp',
-          builder: (context, params) => const CdMpWidget(),
-        ),
-        FFRoute(
           name: 'apresentacao',
           path: '/apresentacao',
           builder: (context, params) => const ApresentacaoWidget(),
@@ -104,9 +89,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'completecadastro',
           path: '/completecadastro',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'completecadastro')
-              : const CompletecadastroWidget(),
+          builder: (context, params) => const CompletecadastroWidget(),
         ),
         FFRoute(
           name: 'login',
@@ -126,9 +109,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const HomepageOfcWidget(),
         ),
         FFRoute(
-          name: 'cria_Carteira',
-          path: '/criaCarteira',
-          builder: (context, params) => const CriaCarteiraWidget(),
+          name: 'cria_Conta_old',
+          path: '/criaContaOld',
+          builder: (context, params) => const CriaContaOldWidget(),
         ),
         FFRoute(
           name: 'cria_Classificacao',
@@ -141,9 +124,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CriaLancamentoContaWidget(),
         ),
         FFRoute(
-          name: 'cria_Cartao',
-          path: '/criaCartao',
-          builder: (context, params) => const CriaCartaoWidget(),
+          name: 'cria_Cartao_old',
+          path: '/criaCartaoOld',
+          builder: (context, params) => const CriaCartaoOldWidget(),
         ),
         FFRoute(
           name: 'cria_Transfer',
@@ -151,19 +134,73 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CriaTransferWidget(),
         ),
         FFRoute(
-          name: 'saldo_carteiras',
-          path: '/saldoCarteiras',
-          builder: (context, params) => const SaldoCarteirasWidget(),
-        ),
-        FFRoute(
           name: 'cria_LancamentoInvest',
           path: '/criaLancamentoInvest',
           builder: (context, params) => const CriaLancamentoInvestWidget(),
         ),
         FFRoute(
-          name: 'saldo_invest',
+          name: 'saldo_invest_OLD',
+          path: '/saldoInvestOLD',
+          builder: (context, params) => const SaldoInvestOLDWidget(),
+        ),
+        FFRoute(
+          name: 'cria_CarteiraInvest_old',
+          path: '/criaCarteiraInvestOld',
+          builder: (context, params) => const CriaCarteiraInvestOldWidget(),
+        ),
+        FFRoute(
+          name: 'cria_ClassiInvest_old',
+          path: '/criaClassiInvestOld',
+          builder: (context, params) => const CriaClassiInvestOldWidget(),
+        ),
+        FFRoute(
+          name: 'saldo_Carteiras',
+          path: '/saldoCarteiras',
+          builder: (context, params) => const SaldoCarteirasWidget(),
+        ),
+        FFRoute(
+          name: 'cria_LancamentoCartao',
+          path: '/criaLancamentoCartao',
+          builder: (context, params) => const CriaLancamentoCartaoWidget(),
+        ),
+        FFRoute(
+          name: 'saldo_Invest',
           path: '/saldoInvest',
           builder: (context, params) => const SaldoInvestWidget(),
+        ),
+        FFRoute(
+          name: 'saldo_Cartao',
+          path: '/saldoCartao',
+          builder: (context, params) => const SaldoCartaoWidget(),
+        ),
+        FFRoute(
+          name: 'download_Bases',
+          path: '/downloadBases',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'download_Bases')
+              : const DownloadBasesWidget(),
+        ),
+        FFRoute(
+          name: 'config_Parametros',
+          path: '/configParametros',
+          builder: (context, params) => const ConfigParametrosWidget(),
+        ),
+        FFRoute(
+          name: 'completecadastro_ofc',
+          path: '/completecadastroOfc',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'completecadastro_ofc')
+              : const CompletecadastroOfcWidget(),
+        ),
+        FFRoute(
+          name: 'cria_Conta',
+          path: '/criaConta',
+          builder: (context, params) => const CriaContaWidget(),
+        ),
+        FFRoute(
+          name: 'cria_Cartao',
+          path: '/criaCartao',
+          builder: (context, params) => const CriaCartaoWidget(),
         ),
         FFRoute(
           name: 'cria_CarteiraInvest',
@@ -171,9 +208,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CriaCarteiraInvestWidget(),
         ),
         FFRoute(
-          name: 'cria_ClassiInvest',
-          path: '/criaClassiInvest',
-          builder: (context, params) => const CriaClassiInvestWidget(),
+          name: 'cria_LancamentoFixo',
+          path: '/criaLancamentoFixo',
+          builder: (context, params) => const CriaLancamentoFixoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -8,47 +8,52 @@ class CriaLancamentoContaModel
     extends FlutterFlowModel<CriaLancamentoContaWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  final textFieldMask1 = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
-  // State field(s) for DropDown widget.
-  String? dropDownValue3;
-  FormFieldController<String>? dropDownValueController3;
-  // State field(s) for DropDown widget.
-  String? dropDownValue4;
-  FormFieldController<String>? dropDownValueController4;
-  // State field(s) for DropDown widget.
-  String? dropDownValue5;
-  FormFieldController<String>? dropDownValueController5;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
+  final formKey = GlobalKey<FormState>();
+  // State field(s) for TextData widget.
+  FocusNode? textDataFocusNode;
+  TextEditingController? textDataTextController;
+  final textDataMask = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? textDataTextControllerValidator;
+  String? _textDataTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Preencher a data';
+    }
+
+    return null;
+  }
+
+  DateTime? datePicked;
+  // State field(s) for DropTipo widget.
+  String? dropTipoValue;
+  FormFieldController<String>? dropTipoValueController;
+  // State field(s) for DropClass widget.
+  String? dropClassValue;
+  FormFieldController<String>? dropClassValueController;
+  // State field(s) for DropSub widget.
+  String? dropSubValue;
+  FormFieldController<String>? dropSubValueController;
+  // State field(s) for DropConta widget.
+  String? dropContaValue;
+  FormFieldController<String>? dropContaValueController;
+  // State field(s) for DropFixo widget.
+  String? dropFixoValue;
+  FormFieldController<String>? dropFixoValueController;
+  // State field(s) for TextDescr widget.
+  FocusNode? textDescrFocusNode;
+  TextEditingController? textDescrTextController;
+  String? Function(BuildContext, String?)? textDescrTextControllerValidator;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    textDataTextControllerValidator = _textDataTextControllerValidator;
+  }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    textDataFocusNode?.dispose();
+    textDataTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
-
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    textDescrFocusNode?.dispose();
+    textDescrTextController?.dispose();
   }
 }

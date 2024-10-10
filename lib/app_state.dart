@@ -21,6 +21,11 @@ class FFAppState extends ChangeNotifier {
           prefs.getStringList('ff_listaValores')?.map(double.parse).toList() ??
               _listaValores;
     });
+    _safeInit(() {
+      _numList =
+          prefs.getStringList('ff_numList')?.map(double.parse).toList() ??
+              _numList;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -75,6 +80,76 @@ class FFAppState extends ChangeNotifier {
     listaValores.insert(index, value);
     prefs.setStringList(
         'ff_listaValores', _listaValores.map((x) => x.toString()).toList());
+  }
+
+  List<double> _numList = [];
+  List<double> get numList => _numList;
+  set numList(List<double> value) {
+    _numList = value;
+    prefs.setStringList('ff_numList', value.map((x) => x.toString()).toList());
+  }
+
+  void addToNumList(double value) {
+    numList.add(value);
+    prefs.setStringList(
+        'ff_numList', _numList.map((x) => x.toString()).toList());
+  }
+
+  void removeFromNumList(double value) {
+    numList.remove(value);
+    prefs.setStringList(
+        'ff_numList', _numList.map((x) => x.toString()).toList());
+  }
+
+  void removeAtIndexFromNumList(int index) {
+    numList.removeAt(index);
+    prefs.setStringList(
+        'ff_numList', _numList.map((x) => x.toString()).toList());
+  }
+
+  void updateNumListAtIndex(
+    int index,
+    double Function(double) updateFn,
+  ) {
+    numList[index] = updateFn(_numList[index]);
+    prefs.setStringList(
+        'ff_numList', _numList.map((x) => x.toString()).toList());
+  }
+
+  void insertAtIndexInNumList(int index, double value) {
+    numList.insert(index, value);
+    prefs.setStringList(
+        'ff_numList', _numList.map((x) => x.toString()).toList());
+  }
+
+  bool _popup2 = false;
+  bool get popup2 => _popup2;
+  set popup2(bool value) {
+    _popup2 = value;
+  }
+
+  String _valueFormat = '';
+  String get valueFormat => _valueFormat;
+  set valueFormat(String value) {
+    _valueFormat = value;
+  }
+
+  double _valueDouble = 0.0;
+  double get valueDouble => _valueDouble;
+  set valueDouble(double value) {
+    _valueDouble = value;
+  }
+
+  int _contador = -1;
+  int get contador => _contador;
+  set contador(int value) {
+    _contador = value;
+  }
+
+  int _contador2 = 0;
+  int get contador2 => _contador2;
+  set contador2(int value) {
+    _contador2 = value;
   }
 }
 

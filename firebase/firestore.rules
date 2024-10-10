@@ -22,13 +22,6 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /user_cadastro_completo/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
     match /bancos/{document} {
       allow create: if true;
       allow read: if true;
@@ -37,20 +30,6 @@ service cloud.firestore {
     }
 
     match /carteiras/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /cadastro_full/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /movimentacoes/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
@@ -97,6 +76,55 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
       allow delete: if false;
+    }
+
+    match /movimentacoes/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /parametros/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /estados/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /escolaridade/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /profissao/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /movimentacoes_parc/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /movimentacoes_agendadas/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
   }
 }

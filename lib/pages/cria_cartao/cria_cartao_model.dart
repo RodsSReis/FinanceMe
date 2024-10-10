@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'cria_cartao_widget.dart' show CriaCartaoWidget;
@@ -6,41 +7,43 @@ import 'package:flutter/material.dart';
 class CriaCartaoModel extends FlutterFlowModel<CriaCartaoWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+
+  // State field(s) for TextNomeCartao widget.
+  FocusNode? textNomeCartaoFocusNode;
+  TextEditingController? textNomeCartaoTextController;
+  String? Function(BuildContext, String?)?
+      textNomeCartaoTextControllerValidator;
+  // State field(s) for DropBandeira widget.
+  String? dropBandeiraValue;
+  FormFieldController<String>? dropBandeiraValueController;
+  // State field(s) for TextDiaVct widget.
+  FocusNode? textDiaVctFocusNode;
+  TextEditingController? textDiaVctTextController;
+  String? Function(BuildContext, String?)? textDiaVctTextControllerValidator;
+  // State field(s) for TextDescr widget.
+  FocusNode? textDescrFocusNode;
+  TextEditingController? textDescrTextController;
+  String? Function(BuildContext, String?)? textDescrTextControllerValidator;
+  // Stores action output result for [Backend Call - Read Document] action in Icon widget.
+  CartoesRecord? outPutCarteiras;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    tabBarController?.dispose();
+    textNomeCartaoFocusNode?.dispose();
+    textNomeCartaoTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    textDiaVctFocusNode?.dispose();
+    textDiaVctTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
-
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    textDescrFocusNode?.dispose();
+    textDescrTextController?.dispose();
   }
 }

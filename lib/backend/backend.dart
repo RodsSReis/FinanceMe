@@ -8,17 +8,21 @@ import 'schema/util/firestore_util.dart';
 import 'schema/classificacoes_record.dart';
 import 'schema/meio_pagamento_record.dart';
 import 'schema/user_cadastro_record.dart';
-import 'schema/user_cadastro_completo_record.dart';
 import 'schema/bancos_record.dart';
 import 'schema/carteiras_record.dart';
-import 'schema/cadastro_full_record.dart';
-import 'schema/movimentacoes_record.dart';
 import 'schema/bandeiras_record.dart';
 import 'schema/cartoes_record.dart';
 import 'schema/movimentacao_invest_record.dart';
 import 'schema/classificacoes_invest_record.dart';
 import 'schema/posicao_invest_record.dart';
 import 'schema/carteira_invest_record.dart';
+import 'schema/movimentacoes_record.dart';
+import 'schema/parametros_record.dart';
+import 'schema/estados_record.dart';
+import 'schema/escolaridade_record.dart';
+import 'schema/profissao_record.dart';
+import 'schema/movimentacoes_parc_record.dart';
+import 'schema/movimentacoes_agendadas_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -30,17 +34,21 @@ export 'schema/util/schema_util.dart';
 export 'schema/classificacoes_record.dart';
 export 'schema/meio_pagamento_record.dart';
 export 'schema/user_cadastro_record.dart';
-export 'schema/user_cadastro_completo_record.dart';
 export 'schema/bancos_record.dart';
 export 'schema/carteiras_record.dart';
-export 'schema/cadastro_full_record.dart';
-export 'schema/movimentacoes_record.dart';
 export 'schema/bandeiras_record.dart';
 export 'schema/cartoes_record.dart';
 export 'schema/movimentacao_invest_record.dart';
 export 'schema/classificacoes_invest_record.dart';
 export 'schema/posicao_invest_record.dart';
 export 'schema/carteira_invest_record.dart';
+export 'schema/movimentacoes_record.dart';
+export 'schema/parametros_record.dart';
+export 'schema/estados_record.dart';
+export 'schema/escolaridade_record.dart';
+export 'schema/profissao_record.dart';
+export 'schema/movimentacoes_parc_record.dart';
+export 'schema/movimentacoes_agendadas_record.dart';
 
 /// Functions to query ClassificacoesRecords (as a Stream and as a Future).
 Future<int> queryClassificacoesRecordCount({
@@ -153,43 +161,6 @@ Future<List<UserCadastroRecord>> queryUserCadastroRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query UserCadastroCompletoRecords (as a Stream and as a Future).
-Future<int> queryUserCadastroCompletoRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      UserCadastroCompletoRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<UserCadastroCompletoRecord>> queryUserCadastroCompletoRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      UserCadastroCompletoRecord.collection,
-      UserCadastroCompletoRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<UserCadastroCompletoRecord>> queryUserCadastroCompletoRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      UserCadastroCompletoRecord.collection,
-      UserCadastroCompletoRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
 /// Functions to query BancosRecords (as a Stream and as a Future).
 Future<int> queryBancosRecordCount({
   Query Function(Query)? queryBuilder,
@@ -259,80 +230,6 @@ Future<List<CarteirasRecord>> queryCarteirasRecordOnce({
     queryCollectionOnce(
       CarteirasRecord.collection,
       CarteirasRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-/// Functions to query CadastroFullRecords (as a Stream and as a Future).
-Future<int> queryCadastroFullRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      CadastroFullRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<CadastroFullRecord>> queryCadastroFullRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      CadastroFullRecord.collection,
-      CadastroFullRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<CadastroFullRecord>> queryCadastroFullRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      CadastroFullRecord.collection,
-      CadastroFullRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-/// Functions to query MovimentacoesRecords (as a Stream and as a Future).
-Future<int> queryMovimentacoesRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      MovimentacoesRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<MovimentacoesRecord>> queryMovimentacoesRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      MovimentacoesRecord.collection,
-      MovimentacoesRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<MovimentacoesRecord>> queryMovimentacoesRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      MovimentacoesRecord.collection,
-      MovimentacoesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -559,6 +456,266 @@ Future<List<CarteiraInvestRecord>> queryCarteiraInvestRecordOnce({
       limit: limit,
       singleRecord: singleRecord,
     );
+
+/// Functions to query MovimentacoesRecords (as a Stream and as a Future).
+Future<int> queryMovimentacoesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      MovimentacoesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<MovimentacoesRecord>> queryMovimentacoesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MovimentacoesRecord.collection,
+      MovimentacoesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MovimentacoesRecord>> queryMovimentacoesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      MovimentacoesRecord.collection,
+      MovimentacoesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ParametrosRecords (as a Stream and as a Future).
+Future<int> queryParametrosRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ParametrosRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ParametrosRecord>> queryParametrosRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ParametrosRecord.collection,
+      ParametrosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ParametrosRecord>> queryParametrosRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ParametrosRecord.collection,
+      ParametrosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query EstadosRecords (as a Stream and as a Future).
+Future<int> queryEstadosRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EstadosRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EstadosRecord>> queryEstadosRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EstadosRecord.collection,
+      EstadosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EstadosRecord>> queryEstadosRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EstadosRecord.collection,
+      EstadosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query EscolaridadeRecords (as a Stream and as a Future).
+Future<int> queryEscolaridadeRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EscolaridadeRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EscolaridadeRecord>> queryEscolaridadeRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EscolaridadeRecord.collection,
+      EscolaridadeRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EscolaridadeRecord>> queryEscolaridadeRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EscolaridadeRecord.collection,
+      EscolaridadeRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ProfissaoRecords (as a Stream and as a Future).
+Future<int> queryProfissaoRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ProfissaoRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ProfissaoRecord>> queryProfissaoRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ProfissaoRecord.collection,
+      ProfissaoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ProfissaoRecord>> queryProfissaoRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ProfissaoRecord.collection,
+      ProfissaoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query MovimentacoesParcRecords (as a Stream and as a Future).
+Future<int> queryMovimentacoesParcRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      MovimentacoesParcRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<MovimentacoesParcRecord>> queryMovimentacoesParcRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MovimentacoesParcRecord.collection,
+      MovimentacoesParcRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MovimentacoesParcRecord>> queryMovimentacoesParcRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      MovimentacoesParcRecord.collection,
+      MovimentacoesParcRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query MovimentacoesAgendadasRecords (as a Stream and as a Future).
+Future<int> queryMovimentacoesAgendadasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      MovimentacoesAgendadasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<MovimentacoesAgendadasRecord>> queryMovimentacoesAgendadasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MovimentacoesAgendadasRecord.collection,
+      MovimentacoesAgendadasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MovimentacoesAgendadasRecord>>
+    queryMovimentacoesAgendadasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          MovimentacoesAgendadasRecord.collection,
+          MovimentacoesAgendadasRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

@@ -58,16 +58,125 @@ class HomepageOfcModel extends FlutterFlowModel<HomepageOfcWidget> {
           int index, Function(double) updateFn) =>
       minhaListaDespesaInvest[index] = updateFn(minhaListaDespesaInvest[index]);
 
+  double? orcado;
+
+  double? minhasDespesasOrc;
+
+  List<double> minhasDespCartao = [];
+  void addToMinhasDespCartao(double item) => minhasDespCartao.add(item);
+  void removeFromMinhasDespCartao(double item) => minhasDespCartao.remove(item);
+  void removeAtIndexFromMinhasDespCartao(int index) =>
+      minhasDespCartao.removeAt(index);
+  void insertAtIndexInMinhasDespCartao(int index, double item) =>
+      minhasDespCartao.insert(index, item);
+  void updateMinhasDespCartaoAtIndex(int index, Function(double) updateFn) =>
+      minhasDespCartao[index] = updateFn(minhasDespCartao[index]);
+
+  List<double> minhasDespConta = [];
+  void addToMinhasDespConta(double item) => minhasDespConta.add(item);
+  void removeFromMinhasDespConta(double item) => minhasDespConta.remove(item);
+  void removeAtIndexFromMinhasDespConta(int index) =>
+      minhasDespConta.removeAt(index);
+  void insertAtIndexInMinhasDespConta(int index, double item) =>
+      minhasDespConta.insert(index, item);
+  void updateMinhasDespContaAtIndex(int index, Function(double) updateFn) =>
+      minhasDespConta[index] = updateFn(minhasDespConta[index]);
+
+  DateTime? dataIni;
+
+  DateTime? dataFim;
+
+  List<double> minhasTarnsf = [];
+  void addToMinhasTarnsf(double item) => minhasTarnsf.add(item);
+  void removeFromMinhasTarnsf(double item) => minhasTarnsf.remove(item);
+  void removeAtIndexFromMinhasTarnsf(int index) => minhasTarnsf.removeAt(index);
+  void insertAtIndexInMinhasTarnsf(int index, double item) =>
+      minhasTarnsf.insert(index, item);
+  void updateMinhasTarnsfAtIndex(int index, Function(double) updateFn) =>
+      minhasTarnsf[index] = updateFn(minhasTarnsf[index]);
+
+  double contaMenosTransf = 0.0;
+
+  String mesRefCartao = '0';
+
+  List<double> minhasDespCartaoAnt = [];
+  void addToMinhasDespCartaoAnt(double item) => minhasDespCartaoAnt.add(item);
+  void removeFromMinhasDespCartaoAnt(double item) =>
+      minhasDespCartaoAnt.remove(item);
+  void removeAtIndexFromMinhasDespCartaoAnt(int index) =>
+      minhasDespCartaoAnt.removeAt(index);
+  void insertAtIndexInMinhasDespCartaoAnt(int index, double item) =>
+      minhasDespCartaoAnt.insert(index, item);
+  void updateMinhasDespCartaoAntAtIndex(int index, Function(double) updateFn) =>
+      minhasDespCartaoAnt[index] = updateFn(minhasDespCartaoAnt[index]);
+
+  String mesRefCartaoAnt = '0';
+
+  double contaMenosCartaoAnt = 0.0;
+
+  double totalDespMenosCartaoAnt = 0.0;
+
+  int difDatasFim = 0;
+
+  double ganhoFixo = 0.0;
+
+  double ganhoVar = 0.0;
+
+  List<double> listGanhoFixo = [];
+  void addToListGanhoFixo(double item) => listGanhoFixo.add(item);
+  void removeFromListGanhoFixo(double item) => listGanhoFixo.remove(item);
+  void removeAtIndexFromListGanhoFixo(int index) =>
+      listGanhoFixo.removeAt(index);
+  void insertAtIndexInListGanhoFixo(int index, double item) =>
+      listGanhoFixo.insert(index, item);
+  void updateListGanhoFixoAtIndex(int index, Function(double) updateFn) =>
+      listGanhoFixo[index] = updateFn(listGanhoFixo[index]);
+
+  List<double> listGanhoVar = [];
+  void addToListGanhoVar(double item) => listGanhoVar.add(item);
+  void removeFromListGanhoVar(double item) => listGanhoVar.remove(item);
+  void removeAtIndexFromListGanhoVar(int index) => listGanhoVar.removeAt(index);
+  void insertAtIndexInListGanhoVar(int index, double item) =>
+      listGanhoVar.insert(index, item);
+  void updateListGanhoVarAtIndex(int index, Function(double) updateFn) =>
+      listGanhoVar[index] = updateFn(listGanhoVar[index]);
+
+  double ganhoTotal = 0.0;
+
+  List<double> minhasTransfRec = [];
+  void addToMinhasTransfRec(double item) => minhasTransfRec.add(item);
+  void removeFromMinhasTransfRec(double item) => minhasTransfRec.remove(item);
+  void removeAtIndexFromMinhasTransfRec(int index) =>
+      minhasTransfRec.removeAt(index);
+  void insertAtIndexInMinhasTransfRec(int index, double item) =>
+      minhasTransfRec.insert(index, item);
+  void updateMinhasTransfRecAtIndex(int index, Function(double) updateFn) =>
+      minhasTransfRec[index] = updateFn(minhasTransfRec[index]);
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  ParametrosRecord? outOrcado;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutDespGeralCartao;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutDespGeralCartaoAnt;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutDespGeralConta;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutRecGeralContaFixo;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutRecGeralContaVar;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutDespTransf;
+  // Stores action output result for [Firestore Query - Query a collection] action in homepage_ofc widget.
+  List<MovimentacoesRecord>? outPutRecTransf;
   // Stores action output result for [Firestore Query - Query a collection] action in Icon widget.
   List<MovimentacoesRecord>? outPutRec;
   // Stores action output result for [Firestore Query - Query a collection] action in Icon widget.
   List<MovimentacoesRecord>? outPutDesp;
   // Stores action output result for [Firestore Query - Query a collection] action in Icon widget.
-  List<MovimentacoesRecord>? outPutRec2;
-  // Stores action output result for [Firestore Query - Query a collection] action in Icon widget.
-  List<MovimentacoesRecord>? outPutDesp2;
+  List<PosicaoInvestRecord>? outPutInvest;
 
   @override
   void initState(BuildContext context) {}

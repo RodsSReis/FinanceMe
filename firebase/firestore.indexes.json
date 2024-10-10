@@ -5,51 +5,13 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "TIPO",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "CLASSIFICACAO",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "classificacoes",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "TIPO",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "CLASSIFICACAO",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "MOVIMENTO",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "meio_pagamento",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "BANCO",
+          "fieldPath": "ID",
           "order": "ASCENDING"
         },
         {
           "fieldPath": "TIPO",
           "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "classificacoes",
-      "queryScope": "COLLECTION",
-      "fields": [
+        },
         {
           "fieldPath": "CLASSIFICACAO",
           "order": "ASCENDING"
@@ -65,11 +27,119 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "TIPO",
           "order": "ASCENDING"
         },
         {
           "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "SUBGRUPO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "MOVIMENTO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "carteiras",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "NOMECARTEIRA",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "classificacoes_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "SUBGRUPO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "carteira_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "NOMECARTEIRA",
           "order": "ASCENDING"
         }
       ]
@@ -97,7 +167,11 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "CARTEIRA",
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
           "order": "ASCENDING"
         }
       ]
@@ -107,11 +181,121 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "CARTEIRA",
+          "fieldPath": "CLASSIFICACAO",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "DATA",
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "SUBGRUPO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "cartoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "NOMECARTAO",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ORIGEM",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "FATURAREF",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ORIGEM",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATACALC",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ORIGEM",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "FIXO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATACALC",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "TIPO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ORIGEM",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CLASSIFICACAO",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATACALC",
           "order": "ASCENDING"
         }
       ]
@@ -139,6 +323,72 @@
         {
           "fieldPath": "MESREF",
           "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CARTEIRA",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ORIGEM",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATACALC",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "posicao_invest",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "CARTEIRAINVEST",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATACALC",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "movimentacoes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CARTEIRA",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "FATURAREF",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ORIGEM",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DATACALC",
+          "order": "ASCENDING"
         }
       ]
     }

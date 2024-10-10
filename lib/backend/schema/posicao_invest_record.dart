@@ -60,6 +60,11 @@ class PosicaoInvestRecord extends FirestoreRecord {
   String get carteirainvest => _carteirainvest ?? '';
   bool hasCarteirainvest() => _carteirainvest != null;
 
+  // "DATACALC" field.
+  DateTime? _datacalc;
+  DateTime? get datacalc => _datacalc;
+  bool hasDatacalc() => _datacalc != null;
+
   void _initializeFields() {
     _id = snapshotData['ID'] as String?;
     _datainput = snapshotData['DATAINPUT'] as DateTime?;
@@ -70,6 +75,7 @@ class PosicaoInvestRecord extends FirestoreRecord {
     _valor = castToType<double>(snapshotData['VALOR']);
     _dataref = snapshotData['DATAREF'] as String?;
     _carteirainvest = snapshotData['CARTEIRAINVEST'] as String?;
+    _datacalc = snapshotData['DATACALC'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +122,7 @@ Map<String, dynamic> createPosicaoInvestRecordData({
   double? valor,
   String? dataref,
   String? carteirainvest,
+  DateTime? datacalc,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -128,6 +135,7 @@ Map<String, dynamic> createPosicaoInvestRecordData({
       'VALOR': valor,
       'DATAREF': dataref,
       'CARTEIRAINVEST': carteirainvest,
+      'DATACALC': datacalc,
     }.withoutNulls,
   );
 
@@ -148,7 +156,8 @@ class PosicaoInvestRecordDocumentEquality
         e1?.subgrupo == e2?.subgrupo &&
         e1?.valor == e2?.valor &&
         e1?.dataref == e2?.dataref &&
-        e1?.carteirainvest == e2?.carteirainvest;
+        e1?.carteirainvest == e2?.carteirainvest &&
+        e1?.datacalc == e2?.datacalc;
   }
 
   @override
@@ -161,7 +170,8 @@ class PosicaoInvestRecordDocumentEquality
         e?.subgrupo,
         e?.valor,
         e?.dataref,
-        e?.carteirainvest
+        e?.carteirainvest,
+        e?.datacalc
       ]);
 
   @override

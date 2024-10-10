@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -409,6 +410,13 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                       if (user == null) {
                                         return;
                                       }
+
+                                      await ParametrosRecord.collection
+                                          .doc()
+                                          .set(createParametrosRecordData(
+                                            id: currentUserUid,
+                                            datainput: getCurrentTimestamp,
+                                          ));
 
                                       context.pushNamedAuth(
                                           'apresentacao', context.mounted);

@@ -55,16 +55,6 @@ class MovimentacoesRecord extends FirestoreRecord {
   String get descricao => _descricao ?? '';
   bool hasDescricao() => _descricao != null;
 
-  // "FIXO" field.
-  bool? _fixo;
-  bool get fixo => _fixo ?? false;
-  bool hasFixo() => _fixo != null;
-
-  // "PARCELADO" field.
-  bool? _parcelado;
-  bool get parcelado => _parcelado ?? false;
-  bool hasParcelado() => _parcelado != null;
-
   // "DESCRITIVOPARC" field.
   int? _descritivoparc;
   int get descritivoparc => _descritivoparc ?? 0;
@@ -90,6 +80,31 @@ class MovimentacoesRecord extends FirestoreRecord {
   String get origem => _origem ?? '';
   bool hasOrigem() => _origem != null;
 
+  // "FATURAREF" field.
+  String? _faturaref;
+  String get faturaref => _faturaref ?? '';
+  bool hasFaturaref() => _faturaref != null;
+
+  // "VALORPARC" field.
+  double? _valorparc;
+  double get valorparc => _valorparc ?? 0.0;
+  bool hasValorparc() => _valorparc != null;
+
+  // "DATACALC" field.
+  DateTime? _datacalc;
+  DateTime? get datacalc => _datacalc;
+  bool hasDatacalc() => _datacalc != null;
+
+  // "FIXO" field.
+  String? _fixo;
+  String get fixo => _fixo ?? '';
+  bool hasFixo() => _fixo != null;
+
+  // "PARCELADO" field.
+  String? _parcelado;
+  String get parcelado => _parcelado ?? '';
+  bool hasParcelado() => _parcelado != null;
+
   void _initializeFields() {
     _id = snapshotData['ID'] as String?;
     _datainput = snapshotData['DATAINPUT'] as DateTime?;
@@ -99,13 +114,16 @@ class MovimentacoesRecord extends FirestoreRecord {
     _classificacao = snapshotData['CLASSIFICACAO'] as String?;
     _subgrupo = snapshotData['SUBGRUPO'] as String?;
     _descricao = snapshotData['DESCRICAO'] as String?;
-    _fixo = snapshotData['FIXO'] as bool?;
-    _parcelado = snapshotData['PARCELADO'] as bool?;
     _descritivoparc = castToType<int>(snapshotData['DESCRITIVOPARC']);
     _carteira = snapshotData['CARTEIRA'] as String?;
     _data = snapshotData['DATA'] as String?;
     _valor = castToType<double>(snapshotData['VALOR']);
     _origem = snapshotData['ORIGEM'] as String?;
+    _faturaref = snapshotData['FATURAREF'] as String?;
+    _valorparc = castToType<double>(snapshotData['VALORPARC']);
+    _datacalc = snapshotData['DATACALC'] as DateTime?;
+    _fixo = snapshotData['FIXO'] as String?;
+    _parcelado = snapshotData['PARCELADO'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -151,13 +169,16 @@ Map<String, dynamic> createMovimentacoesRecordData({
   String? classificacao,
   String? subgrupo,
   String? descricao,
-  bool? fixo,
-  bool? parcelado,
   int? descritivoparc,
   String? carteira,
   String? data,
   double? valor,
   String? origem,
+  String? faturaref,
+  double? valorparc,
+  DateTime? datacalc,
+  String? fixo,
+  String? parcelado,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -169,13 +190,16 @@ Map<String, dynamic> createMovimentacoesRecordData({
       'CLASSIFICACAO': classificacao,
       'SUBGRUPO': subgrupo,
       'DESCRICAO': descricao,
-      'FIXO': fixo,
-      'PARCELADO': parcelado,
       'DESCRITIVOPARC': descritivoparc,
       'CARTEIRA': carteira,
       'DATA': data,
       'VALOR': valor,
       'ORIGEM': origem,
+      'FATURAREF': faturaref,
+      'VALORPARC': valorparc,
+      'DATACALC': datacalc,
+      'FIXO': fixo,
+      'PARCELADO': parcelado,
     }.withoutNulls,
   );
 
@@ -196,13 +220,16 @@ class MovimentacoesRecordDocumentEquality
         e1?.classificacao == e2?.classificacao &&
         e1?.subgrupo == e2?.subgrupo &&
         e1?.descricao == e2?.descricao &&
-        e1?.fixo == e2?.fixo &&
-        e1?.parcelado == e2?.parcelado &&
         e1?.descritivoparc == e2?.descritivoparc &&
         e1?.carteira == e2?.carteira &&
         e1?.data == e2?.data &&
         e1?.valor == e2?.valor &&
-        e1?.origem == e2?.origem;
+        e1?.origem == e2?.origem &&
+        e1?.faturaref == e2?.faturaref &&
+        e1?.valorparc == e2?.valorparc &&
+        e1?.datacalc == e2?.datacalc &&
+        e1?.fixo == e2?.fixo &&
+        e1?.parcelado == e2?.parcelado;
   }
 
   @override
@@ -215,13 +242,16 @@ class MovimentacoesRecordDocumentEquality
         e?.classificacao,
         e?.subgrupo,
         e?.descricao,
-        e?.fixo,
-        e?.parcelado,
         e?.descritivoparc,
         e?.carteira,
         e?.data,
         e?.valor,
-        e?.origem
+        e?.origem,
+        e?.faturaref,
+        e?.valorparc,
+        e?.datacalc,
+        e?.fixo,
+        e?.parcelado
       ]);
 
   @override

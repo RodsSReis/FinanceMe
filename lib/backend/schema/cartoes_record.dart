@@ -30,11 +30,6 @@ class CartoesRecord extends FirestoreRecord {
   String get bandeira => _bandeira ?? '';
   bool hasBandeira() => _bandeira != null;
 
-  // "LIMITE" field.
-  int? _limite;
-  int get limite => _limite ?? 0;
-  bool hasLimite() => _limite != null;
-
   // "DATAVCT" field.
   int? _datavct;
   int get datavct => _datavct ?? 0;
@@ -45,13 +40,18 @@ class CartoesRecord extends FirestoreRecord {
   String get descricao => _descricao ?? '';
   bool hasDescricao() => _descricao != null;
 
+  // "LIMITE" field.
+  double? _limite;
+  double get limite => _limite ?? 0.0;
+  bool hasLimite() => _limite != null;
+
   void _initializeFields() {
     _id = snapshotData['ID'] as String?;
     _nomecartao = snapshotData['NOMECARTAO'] as String?;
     _bandeira = snapshotData['BANDEIRA'] as String?;
-    _limite = castToType<int>(snapshotData['LIMITE']);
     _datavct = castToType<int>(snapshotData['DATAVCT']);
     _descricao = snapshotData['DESCRICAO'] as String?;
+    _limite = castToType<double>(snapshotData['LIMITE']);
   }
 
   static CollectionReference get collection =>
@@ -92,18 +92,18 @@ Map<String, dynamic> createCartoesRecordData({
   String? id,
   String? nomecartao,
   String? bandeira,
-  int? limite,
   int? datavct,
   String? descricao,
+  double? limite,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'ID': id,
       'NOMECARTAO': nomecartao,
       'BANDEIRA': bandeira,
-      'LIMITE': limite,
       'DATAVCT': datavct,
       'DESCRICAO': descricao,
+      'LIMITE': limite,
     }.withoutNulls,
   );
 
@@ -118,14 +118,14 @@ class CartoesRecordDocumentEquality implements Equality<CartoesRecord> {
     return e1?.id == e2?.id &&
         e1?.nomecartao == e2?.nomecartao &&
         e1?.bandeira == e2?.bandeira &&
-        e1?.limite == e2?.limite &&
         e1?.datavct == e2?.datavct &&
-        e1?.descricao == e2?.descricao;
+        e1?.descricao == e2?.descricao &&
+        e1?.limite == e2?.limite;
   }
 
   @override
   int hash(CartoesRecord? e) => const ListEquality().hash(
-      [e?.id, e?.nomecartao, e?.bandeira, e?.limite, e?.datavct, e?.descricao]);
+      [e?.id, e?.nomecartao, e?.bandeira, e?.datavct, e?.descricao, e?.limite]);
 
   @override
   bool isValidKey(Object? o) => o is CartoesRecord;

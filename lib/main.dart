@@ -15,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
+
   await initFirebase();
 
   await FlutterFlowTheme.initialize();
@@ -127,8 +128,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'completecadastro': const CompletecadastroWidget(),
       'homepage_ofc': const HomepageOfcWidget(),
+      'download_Bases': const DownloadBasesWidget(),
+      'completecadastro_ofc': const CompletecadastroOfcWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -149,14 +151,6 @@ class _NavBarPageState extends State<NavBarPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.perm_identity,
-              size: 24.0,
-            ),
-            label: 'Perfil',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.home_outlined,
               size: 30.0,
             ),
@@ -165,6 +159,22 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 30.0,
             ),
             label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.download,
+              size: 24.0,
+            ),
+            label: 'Bases',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.perm_identity,
+              size: 24.0,
+            ),
+            label: 'Perfil',
             tooltip: '',
           )
         ],

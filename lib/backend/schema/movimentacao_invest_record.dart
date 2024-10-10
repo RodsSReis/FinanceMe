@@ -70,6 +70,11 @@ class MovimentacaoInvestRecord extends FirestoreRecord {
   double get valor => _valor ?? 0.0;
   bool hasValor() => _valor != null;
 
+  // "DATACALC" field.
+  DateTime? _datacalc;
+  DateTime? get datacalc => _datacalc;
+  bool hasDatacalc() => _datacalc != null;
+
   void _initializeFields() {
     _id = snapshotData['ID'] as String?;
     _datainput = snapshotData['DATAINPUT'] as DateTime?;
@@ -82,6 +87,7 @@ class MovimentacaoInvestRecord extends FirestoreRecord {
     _carteira = snapshotData['CARTEIRA'] as String?;
     _data = snapshotData['DATA'] as String?;
     _valor = castToType<double>(snapshotData['VALOR']);
+    _datacalc = snapshotData['DATACALC'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -131,6 +137,7 @@ Map<String, dynamic> createMovimentacaoInvestRecordData({
   String? carteira,
   String? data,
   double? valor,
+  DateTime? datacalc,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -145,6 +152,7 @@ Map<String, dynamic> createMovimentacaoInvestRecordData({
       'CARTEIRA': carteira,
       'DATA': data,
       'VALOR': valor,
+      'DATACALC': datacalc,
     }.withoutNulls,
   );
 
@@ -167,7 +175,8 @@ class MovimentacaoInvestRecordDocumentEquality
         e1?.descricao == e2?.descricao &&
         e1?.carteira == e2?.carteira &&
         e1?.data == e2?.data &&
-        e1?.valor == e2?.valor;
+        e1?.valor == e2?.valor &&
+        e1?.datacalc == e2?.datacalc;
   }
 
   @override
@@ -182,7 +191,8 @@ class MovimentacaoInvestRecordDocumentEquality
         e?.descricao,
         e?.carteira,
         e?.data,
-        e?.valor
+        e?.valor,
+        e?.datacalc
       ]);
 
   @override
